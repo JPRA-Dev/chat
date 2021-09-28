@@ -7,8 +7,8 @@ function formatMessage(username, text) {
         username,
         text,
         time: moment().format('h:mm a')     //current time in "hour:minutes am/pm" format
-    }
-};
+    };
+}
 
 
 //export the function
