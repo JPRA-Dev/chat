@@ -1,10 +1,12 @@
 const path = require('path');
 const http = require('http');
 const express = require('express');
+require('./utils/messages');
+
+const botName = 'JAFL Bot';
 
 
 const app = express();
-
 
 const server = http.createServer(app);
 
