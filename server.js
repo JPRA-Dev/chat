@@ -40,7 +40,8 @@ io.on('connection', socket => {
 
     //Broadcast when user disconnects
     socket.on('disconnect', () =>{
-        io.emit('message', formatMessage(botName, "A user has disconnected"));
+        const user = getCurrentUser(socket.id);
+        io.to(user.room).emit('message', formatMessage(botName, `${user.username} has disconnected`));
     });
     
 });
