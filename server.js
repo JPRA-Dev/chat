@@ -2,7 +2,9 @@ const path = require('path');
 const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
+require('./utils/messages');
 
+const botName = 'JAFL Bot';
 
 const app = express();
 const server = http.createServer(app);
