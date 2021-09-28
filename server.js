@@ -19,8 +19,6 @@ io.on('connection', socket => {
     socket.on('joinRoom', ({username, room}) => {
         const user = userJoin(socket.id, username, room);
 
-        console.log(user.username);
-
         socket.join(user.room);
 
         //Welcome user to the room
