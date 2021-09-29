@@ -8,4 +8,16 @@
 
 // Fonts
 
+@import url("https://fonts.googleapis.com/css2?family=Red+Rose:wght@300&family=Roboto&family=Sarpanch:wght@400;600&display=swap");
+
+$aFont: "Sarpanch", sans-serif;
+$bFont: "Red Rose", cursive;
+$cFont: "Roboto", sans serif;
+
+$font-weights: (
+  "regular": 400,
+  "semi-bold": 600,
+);
 // Colors
+
+$pink: #fd0054;
