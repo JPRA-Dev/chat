@@ -31,11 +31,13 @@
     font-size: 16px;
     border-radius: 12px;
     display: block;
+    .form-control {
+      padding-top: 17px;
+    }
 
     label {
       font-family: $aFont;
       font-weight: 600;
-      align-content: left;
     }
     input {
       font-size: 16px;
@@ -46,19 +48,22 @@
       border-radius: 4px;
       font-family: $cFont;
       color: rgb(146, 146, 146);
-      box-shadow: 0px 2px 2px $pink;
+      box-shadow: 0px 2px 4px #fd00546b;
     }
     #room {
       font-size: 16px;
+      font-family: $cFont;
       padding: 5px;
       height: 40px;
       width: 100%;
       border-color: $pink;
       border-radius: 4px;
       color: rgb(146, 146, 146);
+      box-shadow: 0px 2px 4px #fd00546b;
     }
     .buttons {
       text-align: center;
+      padding-top: 18px;
 
       button {
         justify-content: space-around;
