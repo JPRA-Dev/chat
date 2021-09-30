@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+		<link rel="stylesheet" href="css/style.css" />
+		<title>JALF Live Chat</title>
+	</head>
+	<body>
+		<div class="join-container">
+			<header class="join-header">
+				<h1>JALF Live Chat</h1>
+			</header>
+			<main class="join-main">
+                <h2 id="subtitle">Edit your profile</h2>
+				<form action="chat.html">
+					<div class="form-control">
+						<label for="password">Change password</label>
+						<input type="password" name="password" id="password" placeholder="**********" required />
+					</div>
+                    <div class="form-control">
+						<label for="password">Confirm new password</label>
+						<input type="password" name="password" id="password-check" placeholder="**********" required />
+					</div>
+                    <div class="form-control">
+						<label for="password">Update e-mail</label>
+						<input type="email" name="email" id="email" placeholder="dark.pudding@example.com" required />
+					</div>
+                    <div class="form-control">
+                        <label for="picture">Change picture</label>
+                        <div class="drag-area">
+                            <p>Drag and Drop to Upload</p>
+                            <span>OR</span>
+                            <button>Browse files</button>
+                            <input type="file" name="picture" id="picture" accept="image/png, image/jpeg" required hidden />
+                        </div>
+                    </div>
+					<div class="buttons">
+						<button type="button" class="btn"><a href="index.html">Cancel</a></button>
+						<button type="submit" class="btn">Update</button>
+					</div>
+					
+				</form>
+			</main>
+		</div>
+
+        <script src="js/drag-and-drop.js"></script>
+	</body>
+</html>

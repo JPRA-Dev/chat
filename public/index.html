@@ -1,49 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
-			crossorigin="anonymous"
-		/>
-		<link rel="stylesheet" href="css/style.css" />
-		<title>ChatCord App</title>
-	</head>
-	<body>
-		<div class="join-container">
-			<header class="join-header">
-				<h1><i class="fas fa-smile"></i> ChatCord</h1>
-			</header>
-			<main class="join-main">
-				<form action="chat.html">
-					<div class="form-control">
-						<label for="username">Username</label>
-						<input
-							type="text"
-							name="username"
-							id="username"
-							placeholder="Enter username..."
-							required
-						/>
-					</div>
-					<div class="form-control">
-						<label for="room">Room</label>
-						<select name="room" id="room">
-							<option value="JavaScript">JavaScript</option>
-							<option value="Python">Python</option>
-							<option value="PHP">PHP</option>
-							<option value="C#">C#</option>
-							<option value="Ruby">Ruby</option>
-							<option value="Java">Java</option>
-						</select>
-					</div>
-					<button type="submit" class="btn">Join Chat</button>
-				</form>
-			</main>
-		</div>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style2.css" />
+    <title>JALF Live Chat</title>
+  </head>
+  <body>
+    <div id="particles-js"></div>
+    <div class="join-container">
+      <header class="join-header">
+        <h1>JALF Live Chat</h1>
+        <p id="subtitle">Join us and start chatting with Jalfians.</p>
+      </header>
+      <main class="join-main">
+        <form action="chat.html">
+          <div class="form-control">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="DarkPuddingDu58"
+              required
+            />
+          </div>
+          <div class="form-control">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="**********"
+              required
+            />
+          </div>
+          <div class="form-control">
+            <label for="room">Room</label>
+            <select name="room" id="room">
+              <option value="The Backstreet Boys">The Backstreet Boys</option>
+              <option value="The Republic of Becode">
+                The Republic of Becode
+              </option>
+              <option value="MasterChef">MasterChef</option>
+              <option value="The No Man's Land of Memes">
+                The No Man's Land of Memes
+              </option>
+              <option value="Who Wants to Be a Gamer">
+                Who Wants to Be a Gamer
+              </option>
+              <option value="Unicorns">Unicorns</option>
+            </select>
+          </div>
+          <div class="buttons">
+            <button type="button" class="btn">
+              <a href="register.html">Sign up</a>
+            </button>
+            <button type="submit" class="btn">Sign in</button>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <script src="js/particles.min.js"></script>
+    <script src="js/particle.js"></script>
+  </body>
 </html>
