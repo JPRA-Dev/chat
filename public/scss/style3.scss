@@ -1,0 +1,152 @@
+@import "particle";
+@import "variables";
+
+$gray : #B4A8A8;
+
+.join-container {
+    width: 500px;
+    margin: 10px auto;
+    color: #fff;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    margin-left: -250px;
+    background-color: #000;
+  }
+
+.join-header {
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: $aFont;
+    font-size: 26px;
+    color: $pink;
+}
+
+.join-main {
+    width: 100%;
+    background-color: #fff;
+    padding: 8px 20px;
+    padding-right: 40px;
+    border-radius: 12px;
+    color: #000;
+}
+
+.join-main #subtitle {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: $bFont;
+    font-size: 24px;
+}
+
+.join-main label {
+	display: block;
+	margin-bottom: 5px;
+    margin-left: 15px;
+    font-family: $aFont;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.join-main input[type='text'], input[type='password'], input[type="email"] {
+	font-size: 16px;
+	padding: 5px;
+	height: 40px;
+	width: 100%;
+    border-radius: 4px;
+    border-color: $pink;
+    border-style: solid;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 4px rgba( 253, 0, 84 , 0.25);
+    font-family: $cFont;
+}
+
+.join-main .drag-area {
+    width: 100%;
+    height: 165px;
+    border-color: $pink;
+    border-style: dashed;
+    font-family: $bFont;
+    color: $gray;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.join-main .drag-area.active {
+    border-color: $pink;
+    border-style: solid;
+}
+
+.join-main .drag-area.dropped {
+    border-color: rgba(0,0,0,0);
+    border-style: solid;
+}
+
+.join-main .drag-area .upload-img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 60px;
+    width: 48px;
+}
+
+.join-main .drag-area button {
+    font-family: $bFont;
+    background-color: $gray;
+    border-radius: 10px;
+    color: #fff;
+    border-style: solid;
+    border-color: $gray;
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.drag-area img{
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+	border-radius: 5px;
+}
+
+.join-main .buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 60px;
+}
+
+.join-main .buttons .cancel {
+    font-family: $aFont;
+    background-color: #fff;
+    border-color: $pink;
+    border-style: solid;
+    border-radius: 10px;
+    color: $pink;
+}
+
+.join-main .buttons .cancel a {
+    text-decoration: none;
+    color: $pink;
+    font-size: 18px;
+}
+
+.join-main .buttons .signIn {
+    font-family: $aFont;
+    background-color: $pink;
+    border-color: $pink;
+    border-style: solid;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.join-main .buttons .btn {
+    padding: 10px 25px;
+    box-shadow: 0 4px 4px rgba( 253, 0, 84 , 0.25);
+    margin-bottom: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+}
