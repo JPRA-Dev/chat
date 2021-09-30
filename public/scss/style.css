@@ -36,24 +36,52 @@ body #particles-js {
 .join-container .join-header h1 {
   font-family: "Sarpanch", sans-serif;
   color: #fd0054;
-  font-weight: semi-bold;
+  font-weight: 400;
   font-size: 45px;
 }
 .join-container .join-header #subtitle {
   color: #fff;
   font-family: "Red Rose", cursive;
   font-size: 17px;
+  font-weight: 600;
 }
 .join-container .join-main {
   background-color: #fff;
   color: #000;
-  padding: 8% 6% 8% 6%;
+  padding: 3vh 6vh;
   font-size: 16px;
   border-radius: 12px;
   display: block;
+}
+.join-container .join-main label {
+  font-family: "Sarpanch", sans-serif;
+  font-weight: 600;
+  align-content: left;
+}
+.join-container .join-main input {
+  font-size: 16px;
+  padding: 5px;
+  height: 40px;
+  width: 100%;
+  border-color: #fd0054;
+  border-radius: 4px;
+  font-family: "Roboto", sans serif;
+  color: #929292;
+  box-shadow: 0px 2px 2px #fd0054;
+}
+.join-container .join-main #room {
+  font-size: 16px;
+  padding: 5px;
+  height: 40px;
+  width: 100%;
+  border-color: #fd0054;
+  border-radius: 4px;
+  color: #929292;
+}
+.join-container .join-main .buttons {
   text-align: center;
 }
-.join-container .join-main button {
+.join-container .join-main .buttons button {
   justify-content: space-around;
   margin: 15px 5px;
   background-color: #fd0054;
@@ -63,10 +91,12 @@ body #particles-js {
   padding: 0.5rem 1.5rem;
   border-radius: 10px;
   box-shadow: 2px 5px 4px #fd0054;
+  overflow: hidden;
 }
-.join-container .join-main button a {
+.join-container .join-main .buttons button a {
   color: #fff;
   font-size: 16px;
   font-weight: semi-bold;
   font-family: "Sarpanch", sans-serif;
+  text-decoration: none;
 }/*# sourceMappingURL=style.css.map */
