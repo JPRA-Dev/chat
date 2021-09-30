@@ -19,7 +19,6 @@ mongoose.connect('mongodb://localhost/mongo-games')
     .catch(err => console.error('Something went wrong', err));
 
 app.use(express.json());
-
 //here we set up the route to the userReg.js and auth.js
 app.use('/api/users', users);
 app.use('/api/auth', auth);
