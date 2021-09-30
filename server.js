@@ -5,7 +5,7 @@ const socketio = require('socket.io');
 
 const formatMessage = require('./utils/messages');
 const {userJoin, getCurrentUser} = require('./utils/users');
-const LoginSystem = require("./app")
+//const LoginSystem = require("./app")
 
 //define port
 const port = process.env.PORT || 3000;    
