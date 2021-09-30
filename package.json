@@ -29,10 +29,7 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "mongoose": "^6.0.8",
-<<<<<<< HEAD
     "sanitize-html": "^2.5.1",
-=======
->>>>>>> main
     "socket.io": "^4.2.0"
   },
   "devDependencies": {

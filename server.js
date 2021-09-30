@@ -7,9 +7,6 @@ const formatMessage = require('./utils/messages');
 const {userJoin, getCurrentUser} = require('./utils/users');
 const LoginSystem = require("./app")
 
-<<<<<<< HEAD
-const botName = 'JAFL Bot';
-=======
 //define port
 const port = process.env.PORT || 3000;    
 
@@ -21,7 +18,6 @@ const dbURI = 'mongodb+srv://JALF-admin:JALFadmin1@jalfdb.jdkac.mongodb.net/JALF
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
     .then( (result) => server.listen(port), console.log(`Connected to DB. Listening on port ${port}...`))
     .catch( (err) => console.log(err));
->>>>>>> main
 
 //routing and init server with socket.io
 const app = express();

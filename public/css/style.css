@@ -33,14 +33,6 @@ body #particles-js {
 }
 
 .join-header {
-<<<<<<< HEAD
-  text-align: center;
-  padding: 20px;
-  color: var(--dark-color-a);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}/*# sourceMappingURL=style2.css.map */
-=======
 	text-align: center;
 	padding: 20px;
 	color: var(--dark-color-a);
@@ -135,4 +127,3 @@ body #particles-js {
 	object-fit: cover;
 	border-radius: 5px;
   }
->>>>>>> main
