@@ -2,14 +2,29 @@ const path = require('path');
 const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
+
 const formatMessage = require('./utils/messages');
 const {userJoin, getCurrentUser} = require('./utils/users');
+//const LoginSystem = require("./app")
 
-const botName = 'JAFL Bot ';
+//define port
+const port = process.env.PORT || 3000;    
 
+//connect to MongoDB
+const mongoose = require('mongoose');
+    //link to db
+const dbURI = 'mongodb+srv://JALF-admin:JALFadmin1@jalfdb.jdkac.mongodb.net/JALFdb?retryWrites=true&w=majority';
+    //connection, then listen for requests
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
+    .then( (result) => server.listen(port), console.log(`Connected to DB. Listening on port ${port}...`))
+    .catch( (err) => console.log(err));
+
+//routing and init server with socket.io
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
+
+const botName = 'JALF Bot ';
 
 //set static folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -43,7 +58,3 @@ io.on('connection', socket => {
     });
     
 });
-
-const port = process.env.PORT || 3000;    
-
-server.listen(port, () => console.log(`Listening on port ${port}...`));

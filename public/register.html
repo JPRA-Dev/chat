@@ -35,7 +35,12 @@
 					</div>
                     <div class="form-control">
                         <label for="picture">Upload picture</label>
-                        <input type="file" name="picture" id="picture" accept="image/png, image/jpeg" required />
+                        <div class="drag-area">
+                            <p>Drag and Drop to Upload</p>
+                            <span>OR</span>
+                            <button>Browse files</button>
+                            <input type="file" name="picture" id="picture" accept="image/png, image/jpeg" required hidden />
+                        </div>
                     </div>
 					<div class="buttons">
 						<button type="button" class="btn"><a href="index.html">Cancel</a></button>
@@ -45,5 +50,7 @@
 				</form>
 			</main>
 		</div>
+
+        <script src="js/drag-and-drop.js"></script>
 	</body>
 </html>
