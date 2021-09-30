@@ -4,6 +4,7 @@ const express = require('express');
 const socketio = require('socket.io');
 const formatMessage = require('./utils/messages');
 const {userJoin, getCurrentUser} = require('./utils/users');
+const LoginSystem = require("./app")
 
 const botName = 'JAFL Bot';
 

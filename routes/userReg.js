@@ -1,5 +1,8 @@
-//Here we require our 'User and the Validade Schema' and express 
+//Here we require our 'User and the Validade Schema' and express
 const { User, validate} = require('../models/user');
+const jwt = require('jsonwebtoken');
+const _ = require('lodash');
+const config = require('config');
 const express = require('express');
 const router = express.Router();
 
@@ -50,11 +53,13 @@ router.post('/', async (req, res) => {
         //here we encrypt the password with bcrypt
         const salt = await bcrypt.genSalt(10);
         user.password = await bcrypt.hash(user.password, salt);
-        user.confirmPassword = await bcrypt.hash(user.password, salt);
+        user.confirmPassword = await bcrypt.hash(user.confirmPassword, salt);
         
 
         await user.save();
-        res.send(user);
+        //it will generate the token to the user 'x-auth-token'
+        const token = jwt.sign({ _id: user._id }, config.get('PrivateKey'));
+        res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']));
     }
 });
 

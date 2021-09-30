@@ -26,14 +26,12 @@ const User = mongoose.model('User', new mongoose.Schema({
     },
     password: {
         type: String,
-        select: false,
         required: true,
         minlength: 5,
         maxlength: 1024
     },
     confirmPassword: {
         type: String,
-        select: false,
         required: true,
         minlength: 5,
         maxlength: 1024
