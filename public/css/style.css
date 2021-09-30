@@ -33,9 +33,106 @@ body #particles-js {
 }
 
 .join-header {
+<<<<<<< HEAD
   text-align: center;
   padding: 20px;
   color: var(--dark-color-a);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }/*# sourceMappingURL=style2.css.map */
+=======
+	text-align: center;
+	padding: 20px;
+	color: var(--dark-color-a);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.join-main {
+	padding: 30px 40px;
+	background: var(--dark-color-b);
+}
+
+.join-main p {
+	margin-bottom: 20px;
+}
+
+.join-main .form-control {
+	margin-bottom: 20px;
+}
+
+.join-main label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.join-main input[type='text'], input[type='password'], input[type="email"] {
+	font-size: 16px;
+	padding: 5px;
+	height: 40px;
+	width: 100%;
+}
+
+.join-main select {
+	font-size: 16px;
+	padding: 5px;
+	height: 40px;
+	width: 100%;
+}
+
+.join-main .buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.join-main .btn {
+	margin-top: 20px;
+	width: 25%;
+}
+
+@media (max-width: 700px) {
+	.chat-main {
+		display: block;
+	}
+
+	.chat-sidebar {
+		display: none;
+	}
+}
+
+.drag-area {
+	border: 2px dashed #FFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column
+}
+
+.drag-area.active{
+	border: 2px solid #fff;
+  }
+
+.drag-area button {
+	background-color: #fff;
+	color: var(--dark-color-a);
+	border: 0;
+	padding: 5px 15px;
+	margin-bottom: 10px;
+}
+
+.drag-area span {
+	margin: 10px 0 15px 0;
+}
+
+.drag-area p {
+	margin: 10px 0 0 0;
+}
+
+.drag-area img{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	border-radius: 5px;
+  }
+>>>>>>> main
