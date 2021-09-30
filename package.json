@@ -19,12 +19,24 @@
   },
   "homepage": "https://github.com/JPRA-Dev/chat#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "config": "^3.3.6",
     "express": "^4.17.1",
+    "joi": "^17.4.2",
+    "joi-objectid": "^4.0.2",
+    "joi-plus": "^1.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "mongoose": "^6.0.8",
+<<<<<<< HEAD
+    "sanitize-html": "^2.5.1",
+=======
+>>>>>>> main
     "socket.io": "^4.2.0"
   },
   "devDependencies": {
+    "@types/sanitize-html": "^2.3.2",
     "jshint": "^2.13.1",
     "nodemon": "^2.0.13"
   }
