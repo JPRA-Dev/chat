@@ -3,36 +3,99 @@
 
 body {
   color: #fff;
-  .chat-container {
-    margin-right: auto;
-    margin-left: 20em;
-    display: flex;
+  background-color: #000;
+    
     .chat-main {
       position: absolute;
       display: flex;
-      flex-direction: row;
+    
       margin-top: 15em;
+      margin-right: auto;
+      margin-left: 20em;
       .chat-sidebar {
         background-color: #fff;
         color: #000;
         margin-right: 10em;
+        height: 550px;
+        border-radius: 15px;
+        padding: 10px 30px;
+      }
+      h1 {
+      font-family: $aFont;
+      color: $pink;
+      font-weight: 400;
+      font-size: 30px;
+      text-align: center;
+      }
+      h3 {
+        font-size: 19px;
+        margin: 20px 0px;
+        font-family: $aFont;
+      }
+      select {
+        font-size: 14px;
+        font-family: $cFont;
+        border: 1.5px solid $pink;
+        padding: 8px 10px;
+        color: rgb(146, 146, 146);
+        box-shadow: 0px 2px 4px #fd00546b;
+
+
+      }
+      li {
+        list-style-type: none;
+        margin: 17px;
+        font-size: 18px;
+        font-family: $bFont;
       }
       .chat-messages {
         background-color: #fff;
         color: #000;
-        width: 260%;
-        height: 370%;
+        width: 950px;
+        height: 550px;
         border-radius: 15px;
         position: absolute;
+        
       }
     }
-  }
-  .chat-form-container {
+  
+  #chat-form {
     position: absolute;
-    #chat-form {
-      justify-content: space-between;
-      display: flex;
-      width: 500px;
+    justify-content: space-between;
+    display: flex;
+    width: 500px;
+    input {
+      position: absolute;
+      top: 470px;
+      left: 25px;
+      padding: 25px 10px;
+      width: 900px;
+      text-align: start;
+      color: rgb(146, 146, 146);
+      font-family: $cFont;
+      box-shadow: 2px 5px 4px #fd00546b;
+      border: 1.5px solid $pink;
+
     }
+    .btn {
+      position: absolute;
+      top: 465px;
+      left: 815px;
+        margin: 15px 5px;
+        background-color: $pink;
+        pointer-events: auto;
+        cursor: pointer;
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 10px;
+        box-shadow: 2px 5px 4px $pink;
+        overflow: hidden;
+        color: #fff;
+          font-size: 16px;
+          font-weight: semi-bold;
+          font-family: $aFont;
+          text-decoration: none;
+    }
+  
   }
 }
