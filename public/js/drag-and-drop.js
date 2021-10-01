@@ -12,7 +12,7 @@ button.onclick = () => {
 input.addEventListener("change", function() {
     //getting user select file and [0] this means if user select multiple files, then we'll select only the first one
     file = this.files[0];
-    dropArea.classList.add("active");
+    dropArea.classList.add("dropped");
     showFile(); //calling function
 });
 
@@ -32,6 +32,8 @@ dropArea.addEventListener("dragleave", () => {
 //If user drop File on DropArea
 dropArea.addEventListener("drop", (event) => {
     event.preventDefault(); //preventing from default behaviour
+    dropArea.classList.remove("active");
+    dropArea.classList.add("dropped");
     //getting user select file and [0] this means if user select multiple files, then we'll select only the first one
     file = event.dataTransfer.files[0];
     showFile(); //calling function

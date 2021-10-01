@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Rose:wght@300&family=Roboto&family=Sarpanch:wght@400;600&display=swap");
+body {
+  margin: 0;
+  font: normal 75% Arial, Helvetica, sans-serif;
+}
+
+body canvas {
+  display: block;
+}
+
+body #particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.join-container {
+  width: 500px;
+  margin: 10px auto;
+  color: #fff;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  left: 50%;
+  margin-left: -250px;
+  background-color: #000;
+}
+
+.join-header {
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: "Sarpanch", sans-serif;
+  font-size: 26px;
+  color: #fd0054;
+}
+
+.join-main {
+  width: 100%;
+  background-color: #fff;
+  padding: 8px 20px;
+  padding-right: 40px;
+  border-radius: 12px;
+  color: #000;
+}
+
+.join-main #subtitle {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Red Rose", cursive;
+  font-size: 24px;
+}
+
+.join-main label {
+  display: block;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  font-family: "Sarpanch", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.join-main input[type='text'], input[type='password'], input[type="email"] {
+  font-size: 16px;
+  padding: 5px;
+  height: 40px;
+  width: 100%;
+  border-radius: 4px;
+  border-color: #fd0054;
+  border-style: solid;
+  margin-bottom: 15px;
+  -webkit-box-shadow: 0 4px 4px rgba(253, 0, 84, 0.25);
+          box-shadow: 0 4px 4px rgba(253, 0, 84, 0.25);
+  font-family: "Roboto", sans serif;
+}
+
+.join-main .drag-area {
+  width: 100%;
+  height: 165px;
+  border-color: #fd0054;
+  border-style: dashed;
+  font-family: "Red Rose", cursive;
+  color: #B4A8A8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.join-main .drag-area.active {
+  border-color: #fd0054;
+  border-style: solid;
+}
+
+.join-main .drag-area.dropped {
+  border-color: rgba(0, 0, 0, 0);
+  border-style: solid;
+}
+
+.join-main .drag-area .upload-img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 60px;
+  width: 48px;
+}
+
+.join-main .drag-area button {
+  font-family: "Red Rose", cursive;
+  background-color: #B4A8A8;
+  border-radius: 10px;
+  color: #fff;
+  border-style: solid;
+  border-color: #B4A8A8;
+  display: block;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.drag-area img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 5px;
+}
+
+.join-main .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0 60px;
+}
+
+.join-main .buttons .cancel {
+  font-family: "Sarpanch", sans-serif;
+  background-color: #fff;
+  border-color: #fd0054;
+  border-style: solid;
+  border-radius: 10px;
+  color: #fd0054;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.join-main .buttons .cancel:hover {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+  background-color: #fd0054;
+  color: #fff;
+}
+
+.join-main .buttons .cancel:hover a {
+  color: #fff;
+}
+
+.join-main .buttons .cancel a {
+  text-decoration: none;
+  color: #fd0054;
+  font-size: 18px;
+}
+
+.join-main .buttons .signIn {
+  font-family: "Sarpanch", sans-serif;
+  background-color: #fd0054;
+  border-color: #fd0054;
+  border-style: solid;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 18px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.join-main .buttons .signIn:hover {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+  background-color: #fff;
+  color: #fd0054;
+}
+
+.join-main .buttons .btn {
+  padding: 10px 25px;
+  -webkit-box-shadow: 0 4px 4px rgba(253, 0, 84, 0.25);
+          box-shadow: 0 4px 4px rgba(253, 0, 84, 0.25);
+  margin-bottom: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style3.css.map */

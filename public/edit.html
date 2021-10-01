@@ -6,10 +6,11 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
 			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/style3.css" />
 		<title>JALF Live Chat</title>
 	</head>
 	<body>
+        <div id="particles-js"></div>
 		<div class="join-container">
 			<header class="join-header">
 				<h1>JALF Live Chat</h1>
@@ -32,6 +33,7 @@
                     <div class="form-control">
                         <label for="picture">Change picture</label>
                         <div class="drag-area">
+							<img src="css/upload.png" class="upload-img" alt="Upload" />
                             <p>Drag and Drop to Upload</p>
                             <span>OR</span>
                             <button>Browse files</button>
@@ -39,14 +41,16 @@
                         </div>
                     </div>
 					<div class="buttons">
-						<button type="button" class="btn"><a href="index.html">Cancel</a></button>
-						<button type="submit" class="btn">Update</button>
+						<button type="button" class="btn cancel"><a href="index.html">Cancel</a></button>
+						<button type="submit" class="btn signIn">Update</button>
 					</div>
 					
 				</form>
 			</main>
 		</div>
 
+        <script src="js/particles.min.js"></script>
+        <script src="js/particle.js"></script>
         <script src="js/drag-and-drop.js"></script>
 	</body>
 </html>
