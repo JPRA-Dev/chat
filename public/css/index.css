@@ -106,8 +106,6 @@ body #particles-js {
 }
 
 .join-container .join-main .buttons button {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   margin: 15px 5px;
   background-color: #fd0054;
   pointer-events: auto;
