@@ -5,9 +5,7 @@ const socketio = require('socket.io');
 const app = express();
 
 
-
-
-/** REQUIREMENTS APP.JS ***/
+/************************* FUNCTIONS APP.JS ************************************/
 
 const config = require('config');
 const Joi = require('joi');
@@ -37,7 +35,7 @@ app.post("/welcome", authorization, (req, res) => {
   res.status(200).send("Welcome 🙌 ");
 });
 
-/***************************/
+/**********************************************************************************/
 
 
 
