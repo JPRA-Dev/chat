@@ -8,6 +8,7 @@ const users = require('./routes/userReg');
 const auth = require('./routes/userAuth');
 const express = require('express');
 const app = express();
+const authorization = require('./middleware/auth');
 
 if (!config.get('PrivateKey')) {
     console.error('FATAL ERROR: PrivateKey is not defined.');
@@ -25,11 +26,11 @@ app.use('/api/auth', auth);
 
 
 
-app.post("/welcome", auth, (req, res) => {
+app.post("/welcome", authorization, (req, res) => {
   res.status(200).send("Welcome 🙌 ");
 });
 
-const port = process.env.PORT || 4000;
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+// const port = process.env.PORT || 4000;
+// app.listen(port, () => console.log(`Listening on port ${port}...`));
  
  

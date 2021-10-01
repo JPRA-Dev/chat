@@ -2,6 +2,44 @@ const path = require('path');
 const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
+const app = express();
+
+
+
+
+/** REQUIREMENTS APP.JS ***/
+
+const config = require('config');
+const Joi = require('joi');
+Joi.objectId = require('joi-objectid')(Joi);
+//here we require the 'userReg.js' file so we can use it more down
+const users = require('./routes/userReg');
+//here we require the 'userAuth.js' file so we can use it more down
+const auth = require('./routes/userAuth');
+const authorization = require('./middleware/auth');
+
+//function to check if the config "PrivateKey" is defined
+if (!config.get('PrivateKey')) {
+    console.error('FATAL ERROR: PrivateKey is not defined.');
+    process.exit(1);
+}
+//if you have the error devine the key like this in the terminal:
+//in mac: ‘export chat_PrivateKey=mySecureKey’
+//in windows: ‘set chat_PrivateKey=mySecureKey’
+
+app.use(express.json());
+//here we set up the route to the userReg.js and auth.js
+app.use('/api/users', users);
+app.use('/api/auth', auth);
+
+//route to a welcome message just to try. As it has the 'authorization' function there, only if we are logged in (give a valid token) it will work
+app.post("/welcome", authorization, (req, res) => {
+  res.status(200).send("Welcome 🙌 ");
+});
+
+/***************************/
+
+
 
 const formatMessage = require('./utils/messages');
 const {userJoin, getCurrentUser} = require('./utils/users');
@@ -20,7 +58,6 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
     .catch( (err) => console.log(err));
 
 //routing and init server with socket.io
-const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
