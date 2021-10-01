@@ -1,9 +1,8 @@
-const config = require('config');
-const jwt = require('jsonwebtoken');
 const Joi = require('joi');
 const bcrypt = require('bcrypt');
 const { User } = require('../models/user');
 const express = require('express');
+const mongoose = require('mongoose');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
@@ -28,8 +27,9 @@ router.post('/', async (req, res) => {
     //as all matches, we give a token to the user to be able to login with their account
     //const token = jwt.sign({ _id: user._id }, 'PrivateKey');
 
-    //Now that we have the config files, instead of referencing the private key directly, we reference it using the config.get() function
-    const token = jwt.sign({ _id: user._id }, config.get('PrivateKey'));
+    //Now that we have the config files, instead of referencing the private key directly, we reference it using the config.get() function that is inside the user.generateAuthToken();
+    const token = user.generateAuthToken();
+
     res.send(token);
 });
 

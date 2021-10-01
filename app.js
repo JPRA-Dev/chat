@@ -8,6 +8,7 @@ const users = require('./routes/userReg');
 const auth = require('./routes/userAuth');
 const express = require('express');
 const app = express();
+const authorization = require('./middleware/auth');
 
 if (!config.get('PrivateKey')) {
     console.error('FATAL ERROR: PrivateKey is not defined.');
@@ -19,18 +20,17 @@ mongoose.connect('mongodb://localhost/mongo-games')
     .catch(err => console.error('Something went wrong', err));
 
 app.use(express.json());
-
 //here we set up the route to the userReg.js and auth.js
 app.use('/api/users', users);
 app.use('/api/auth', auth);
 
 
 
-app.post("/welcome", auth, (req, res) => {
+app.post("/welcome", authorization, (req, res) => {
   res.status(200).send("Welcome 🙌 ");
 });
 
-const port = process.env.PORT || 4000;
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+// const port = process.env.PORT || 4000;
+// app.listen(port, () => console.log(`Listening on port ${port}...`));
  
  

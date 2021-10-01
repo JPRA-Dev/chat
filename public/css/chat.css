@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Red+Rose:wght@300&family=Roboto&family=Sarpanch:wght@400;600&display=swap");
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -9,9 +10,11 @@ body {
   margin: 0;
   font: normal 75% Arial, Helvetica, sans-serif;
 }
+
 body canvas {
   display: block;
 }
+
 body #particles-js {
   position: absolute;
   width: 100%;
@@ -27,13 +30,17 @@ body {
   color: #fff;
   background-color: #000;
 }
+
 body .chat-main {
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 15em;
   margin-right: auto;
   margin-left: 20em;
 }
+
 body .chat-main .chat-sidebar {
   background-color: #fff;
   color: #000;
@@ -42,6 +49,7 @@ body .chat-main .chat-sidebar {
   border-radius: 15px;
   padding: 10px 30px;
 }
+
 body .chat-main h1 {
   font-family: "Sarpanch", sans-serif;
   color: #fd0054;
@@ -49,25 +57,30 @@ body .chat-main h1 {
   font-size: 30px;
   text-align: center;
 }
+
 body .chat-main h3 {
   font-size: 19px;
   margin: 20px 0px;
   font-family: "Sarpanch", sans-serif;
 }
+
 body .chat-main select {
   font-size: 14px;
   font-family: "Roboto", sans serif;
   border: 1.5px solid #fd0054;
   padding: 8px 10px;
   color: #929292;
-  box-shadow: 0px 2px 4px #fd00546b;
+  -webkit-box-shadow: 0px 2px 4px #fd00546b;
+          box-shadow: 0px 2px 4px #fd00546b;
 }
+
 body .chat-main li {
   list-style-type: none;
   margin: 17px;
   font-size: 18px;
   font-family: "Red Rose", cursive;
 }
+
 body .chat-main .chat-messages {
   background-color: #fff;
   color: #000;
@@ -76,12 +89,18 @@ body .chat-main .chat-messages {
   border-radius: 15px;
   position: absolute;
 }
+
 body #chat-form {
   position: absolute;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 500px;
 }
+
 body #chat-form input {
   position: absolute;
   top: 470px;
@@ -91,9 +110,11 @@ body #chat-form input {
   text-align: start;
   color: #929292;
   font-family: "Roboto", sans serif;
-  box-shadow: 2px 5px 4px #fd00546b;
+  -webkit-box-shadow: 2px 5px 4px #fd00546b;
+          box-shadow: 2px 5px 4px #fd00546b;
   border: 1.5px solid #fd0054;
 }
+
 body #chat-form .btn {
   position: absolute;
   top: 465px;
@@ -105,11 +126,13 @@ body #chat-form .btn {
   border: none;
   padding: 0.5rem 1.5rem;
   border-radius: 10px;
-  box-shadow: 2px 5px 4px #fd0054;
+  -webkit-box-shadow: 2px 5px 4px #fd0054;
+          box-shadow: 2px 5px 4px #fd0054;
   overflow: hidden;
   color: #fff;
   font-size: 16px;
   font-weight: semi-bold;
   font-family: "Sarpanch", sans-serif;
   text-decoration: none;
-}/*# sourceMappingURL=chat.css.map */
+}
+/*# sourceMappingURL=chat.css.map */
