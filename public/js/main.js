@@ -2,7 +2,7 @@
 const chatForm = document.getElementById('chat-form');
 const chatMessages = document.querySelector('.chat-messages');
 const usersDisplay = document.getElementById('users');
-const roomDisplay = document.getElementById('room');
+const roomDisplay = document.getElementById('room-name');
 
 //get username and room from URL
 const { username, room } = Qs.parse(location.search, {
