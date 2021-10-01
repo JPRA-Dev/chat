@@ -1,11 +1,12 @@
 //get form DOM elements
 const chatForm = document.getElementById('chat-form');
 const chatMessages = document.querySelector('.chat-messages');
-// let chatHistory;
+const usersDisplay = document.getElementById('users');
+const roomDisplay = document.getElementById('room');
 
 //get username and room from URL
 const { username, room } = Qs.parse(location.search, {
-    ignoreQueryPrefix: true,
+    ignoreQueryPrefix: true
 });
 
 //call socket.io
@@ -14,10 +15,11 @@ const socket = io();
 // Join chatroom
 socket.emit('joinRoom', { username, room });
 
-// //display previous messages
-// function getChatHistory(){
-//     chatMessages = chatHistory;
-// }
+//display room and users on html
+socket.on('roomUsers', ({room, users}) => {
+    outputRoomName(room);
+    outputUsers(users);
+})
 
 //display message 
 socket.on('message', message => {
@@ -46,6 +48,35 @@ chatForm.addEventListener('submit', e => {
 
 });
 
+//retrieve all messages from storage, remove if too many
+let chatHistory = new Array;
+function getChatHistory() {
+
+    //get array of former messages from storage
+    if (sessionStorage.getItem('History') !== null) {
+        chatHistory =JSON.parse(sessionStorage.getItem('History'));
+
+        //loop to add each message to html
+        for (i=0; i<chatHistory.length; i++) {
+            chatMessages.innerHTML += chatHistory[i];
+        }
+
+        //remove messages if more than 400 in storage
+        if (chatHistory.length > 10){
+           
+            //select messages to delete
+            let messagesToRemove = chatHistory.length - 11;
+            console.log("Too many messages, deleted ", messagesToRemove, "messages");
+             //delete them
+            for (i=0; i<messagesToRemove; i++) {
+                chatHistory.shift();
+            }
+            //set new history in storage
+            sessionStorage.setItem('History', JSON.stringify(chatHistory));
+        }
+    }
+} 
+
 // Function to output message to DOM (display message on page)
 function outputMessage(message){
     const div = document.createElement('div');
@@ -54,7 +85,23 @@ function outputMessage(message){
     <p class="text">
         ${message.text}
     </p>`;
-    document.querySelector('.chat-messages').appendChild(div);
-    // chatHistory = chatMessages.innerHTML;
-    // console.log(chatHistory);
+    chatMessages.appendChild(div);
+    
+    //add message to storage if not from bot
+    if (String(message.username).includes("JALF Bot") == false){
+        chatHistory.push(div.innerHTML);
+        sessionStorage.setItem('History', JSON.stringify(chatHistory));
+    }
+}
+
+// Function to output room name
+function outputRoomName(room){
+    roomDisplay.innerHTML = room;
+}
+
+// Function to output connected users names
+function outputUsers(users){
+    usersDisplay.innerHTML = `
+    ${users.map(user => `<li>${user.username}</li>`).join('')}
+    `;
 }

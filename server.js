@@ -4,7 +4,7 @@ const express = require('express');
 const socketio = require('socket.io');
 
 const formatMessage = require('./utils/messages');
-const {userJoin, getCurrentUser} = require('./utils/users');
+const {userJoin, getCurrentUser, userLeave, getRoomUsers} = require('./utils/users');
 //const LoginSystem = require("./app")
 
 //define port
@@ -12,6 +12,7 @@ const port = process.env.PORT || 3000;
 
 //connect to MongoDB
 const mongoose = require('mongoose');
+const { connect } = require('http2');
     //link to db
 const dbURI = 'mongodb+srv://JALF-admin:JALFadmin1@jalfdb.jdkac.mongodb.net/JALFdb?retryWrites=true&w=majority';
     //connection, then listen for requests
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Run when chat client connects
 io.on('connection', socket => {
+    
     socket.on('joinRoom', ({username, room}) => {
         const user = userJoin(socket.id, username, room);
 
@@ -43,6 +45,12 @@ io.on('connection', socket => {
         socket.broadcast
         .to(user.room)
         .emit('message', formatMessage(botName, `${user.username} has connected`));
+
+        // Send users and room info
+        io.to(user.room).emit('roomUsers', {
+            room: user.room,
+            users: getRoomUsers(user.room)
+        })
     });
 
     //Listen for chatMessage (message variable from main.js)
@@ -53,8 +61,13 @@ io.on('connection', socket => {
 
     //Broadcast when user disconnects
     socket.on('disconnect', () =>{
-        const user = getCurrentUser(socket.id);
+        const user = userLeave(socket.id);
         io.to(user.room).emit('message', formatMessage(botName, `${user.username} has disconnected`));
+        // Send users and room info
+        io.to(user.room).emit('roomUsers', {
+            room: user.room,
+            users: getRoomUsers(user.room)
+    })
     });
     
 });

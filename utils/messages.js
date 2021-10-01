@@ -6,7 +6,7 @@ function formatMessage(username, text) {
     return {
         username,
         text,
-        time: moment().format(' h:mm a')     //current time in "hour:minutes am/pm" format
+        time: moment().format('DD / MM / YYYY h:mm a')     //current time in "hour:minutes am/pm" format
     };
 }
 
