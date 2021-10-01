@@ -165,6 +165,19 @@ body #particles-js {
   border-style: solid;
   border-radius: 10px;
   color: #fd0054;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.join-main .buttons .cancel:hover {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+  background-color: #fd0054;
+  color: #fff;
+}
+
+.join-main .buttons .cancel:hover a {
+  color: #fff;
 }
 
 .join-main .buttons .cancel a {
@@ -181,6 +194,15 @@ body #particles-js {
   border-radius: 10px;
   color: #fff;
   font-size: 18px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.join-main .buttons .signIn:hover {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+  background-color: #fff;
+  color: #fd0054;
 }
 
 .join-main .buttons .btn {

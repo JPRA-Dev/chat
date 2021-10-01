@@ -125,6 +125,15 @@ $gray : #B4A8A8;
     border-style: solid;
     border-radius: 10px;
     color: $pink;
+    transition: all 0.2s;
+    &:hover {
+        transform: scale(1.1, 1.1);
+        background-color: $pink;
+        color: #fff;
+        a {
+            color: #fff;
+        }
+    }
 }
 
 .join-main .buttons .cancel a {
@@ -141,6 +150,12 @@ $gray : #B4A8A8;
     border-radius: 10px;
     color: #fff;
     font-size: 18px;
+    transition: all 0.2s;
+    &:hover {
+        transform: scale(1.1, 1.1);
+        background-color: #fff;
+        color: $pink;
+    }
 }
 
 .join-main .buttons .btn {

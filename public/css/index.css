@@ -3,9 +3,11 @@ body {
   margin: 0;
   font: normal 75% Arial, Helvetica, sans-serif;
 }
+
 body canvas {
   display: block;
 }
+
 body #particles-js {
   position: absolute;
   width: 100%;
@@ -18,7 +20,8 @@ body #particles-js {
 }
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -29,22 +32,26 @@ body #particles-js {
   top: 5%;
   left: 38%;
 }
+
 .join-container .join-header {
   text-align: center;
   padding: 20px;
 }
+
 .join-container .join-header h1 {
   font-family: "Sarpanch", sans-serif;
   color: #fd0054;
   font-weight: 400;
   font-size: 45px;
 }
+
 .join-container .join-header #subtitle {
   color: #fff;
   font-family: "Red Rose", cursive;
   font-size: 17px;
   font-weight: 600;
 }
+
 .join-container .join-main {
   background-color: #fff;
   color: #000;
@@ -53,13 +60,16 @@ body #particles-js {
   border-radius: 12px;
   display: block;
 }
+
 .join-container .join-main .form-control {
   padding-top: 17px;
 }
+
 .join-container .join-main label {
   font-family: "Sarpanch", sans-serif;
   font-weight: 600;
 }
+
 .join-container .join-main input {
   font-size: 16px;
   padding: 5px;
@@ -69,8 +79,10 @@ body #particles-js {
   border-radius: 4px;
   font-family: "Roboto", sans serif;
   color: #929292;
-  box-shadow: 0px 2px 4px #fd00546b;
+  -webkit-box-shadow: 0px 2px 4px #fd00546b;
+          box-shadow: 0px 2px 4px #fd00546b;
 }
+
 .join-container .join-main #room {
   font-size: 16px;
   font-family: "Roboto", sans serif;
@@ -80,14 +92,22 @@ body #particles-js {
   border-color: #fd0054;
   border-radius: 4px;
   color: #929292;
-  box-shadow: 0px 2px 4px #fd00546b;
+  -webkit-box-shadow: 0px 2px 4px #fd00546b;
+          box-shadow: 0px 2px 4px #fd00546b;
 }
+
+.join-container .join-main #room option {
+  font-family: "Roboto", sans serif;
+}
+
 .join-container .join-main .buttons {
   text-align: center;
   padding-top: 18px;
 }
+
 .join-container .join-main .buttons button {
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin: 15px 5px;
   background-color: #fd0054;
   pointer-events: auto;
@@ -95,13 +115,33 @@ body #particles-js {
   border: none;
   padding: 0.5rem 1.5rem;
   border-radius: 10px;
-  box-shadow: 2px 5px 4px #fd0054;
+  border-color: #fd0054;
+  border-style: solid;
+  -webkit-box-shadow: 2px 5px 4px rgba(253, 0, 84, 0.25);
+          box-shadow: 2px 5px 4px rgba(253, 0, 84, 0.25);
   overflow: hidden;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
+
 .join-container .join-main .buttons button a {
   color: #fff;
   font-size: 16px;
   font-weight: semi-bold;
   font-family: "Sarpanch", sans-serif;
   text-decoration: none;
-}/*# sourceMappingURL=style.css.map */
+}
+
+.join-container .join-main .buttons button:hover {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+  background-color: #fff;
+  border-color: #fd0054;
+  border-style: solid;
+  color: #fd0054;
+}
+
+.join-container .join-main .buttons button:hover a {
+  color: #fd0054;
+}
+/*# sourceMappingURL=index.css.map */
