@@ -21,12 +21,12 @@
         <p id="subtitle">Join us and start chatting with Jalfians.</p>
       </header>
       <main class="join-main">
-        <form action="chat.html">
+        <form action="/api/auth" method="POST">
           <div class="form-control">
-            <label for="username">Username</label>
+            <label for="name">Username</label>
             <input
               type="text"
-              name="username"
+              name="name"
               id="username"
               placeholder="DarkPuddingDu58"
               required
@@ -64,7 +64,7 @@
               <a href="register.html">Sign up</a>
             </button>
             <button type="submit" class="btn">
-              <a href="chat.html">Sign in</a>
+              <a>Sign in</a>
             </button>
           </div>
         </form>
@@ -73,5 +73,6 @@
 
     <script src="js/particles.min.js"></script>
     <script src="js/particle.js"></script>
+    <script src="../server.js"></script>
   </body>
 </html>

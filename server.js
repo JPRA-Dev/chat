@@ -25,7 +25,9 @@ if (!config.get('PrivateKey')) {
 //in mac: ‘export chat_PrivateKey=mySecureKey’
 //in windows: ‘set chat_PrivateKey=mySecureKey’
 
+app.use(express.urlencoded({extended: true})); 
 app.use(express.json());
+
 //here we set up the route to the userReg.js and auth.js
 app.use('/api/users', users);
 app.use('/api/auth', auth);

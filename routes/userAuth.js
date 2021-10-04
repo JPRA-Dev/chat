@@ -12,17 +12,19 @@ router.post('/', async (req, res) => {
         return res.status(400).send(error.details[0].message);
     }
 
-    //  Now find the user by their email address and check if email is there
-    let user = await User.findOne({ email: req.body.email });
+    //  Now find the user by their user and check if email is there
+    let user = await User.findOne({ name: req.body.name });
     if (!user) {
-        return res.status(400).send('Incorrect email or password.');
+        return res.status(400).send('Incorrect user or password.');
     }
 
     // Then we check if the password that the user did provide matches the one of the database
     const validPassword = await bcrypt.compare(req.body.password, user.password);
     if (!validPassword) {
-        return res.status(400).send('Incorrect email or password.');
+        return res.status(400).send('Incorrect user or password.');
     }
+
+    const room = await User.findOne({ room: req.body.room });
 
     //as all matches, we give a token to the user to be able to login with their account
     //const token = jwt.sign({ _id: user._id }, 'PrivateKey');
@@ -35,8 +37,9 @@ router.post('/', async (req, res) => {
 
 function validate(req) {
     const schema = Joi.object({
-        email: Joi.string().min(5).max(255).required().email(),
-        password: Joi.string().min(5).max(255).required()
+        name: Joi.string().min(3).max(50).required(),
+        password: Joi.string().min(5).max(255).required(),
+        room: Joi.string().min(3).max(50).required()
     });
 
     return schema.validate(req);
