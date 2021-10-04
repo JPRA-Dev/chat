@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema({
         minlength: 5,
         maxlength: 1024
     },
-    isAdmin: Boolean
+    isAdmin: Boolean,
 });
 
 userSchema.methods.generateAuthToken = function() {
@@ -51,16 +51,14 @@ const User = mongoose.model('User', userSchema);
 //here we use 'joi' to make the validation of our data
 function validateUser(user) {
     const schema = Joi.object({
-        name: Joi.string().min(5).max(50).required(),
+        name: Joi.string().min(3).max(50).required(),
         email: Joi.string().min(5).max(255).required().email(),
         password: Joi.string().min(5).max(255).required(),
         confirmPassword: Joi.any().equal(Joi.ref('password'))
         .required()
         .label('Confirm password')
-        .messages({ 'any.only': '{{#label}} needs to be the same as the password!' })
+        .messages({ 'any.only': '{{#label}} needs to be the same as the password!' }),
     });
-    
-    
     return schema.validate(user);
 }
 

@@ -17,24 +17,23 @@
 			</header>
 			<main class="join-main">
                 <h2 id="subtitle">Create your account</h2>
-				<form action="chat.html">
+				<form action="/api/users" method="POST">
 					<div class="form-control">
-						<label for="username">Username</label>
-						<input type="text" name="username" id="username" placeholder="DarkPuddingDu58" required />
-					</div>
+						<label for="name">Username</label>
+						<input type="text" name="name" id="username" placeholder="DarkPuddingDu58" required />
 					<div class="form-control">
 						<label for="password">Password</label>
 						<input type="password" name="password" id="password" placeholder="**********" required />
 					</div>
                     <div class="form-control">
-						<label for="password">Confirm password</label>
-						<input type="password" name="password" id="password-check" placeholder="**********" required />
+						<label for="confirmPassword">Confirm password</label>
+						<input type="password" name="confirmPassword" id="password-check" placeholder="**********" required />
 					</div>
                     <div class="form-control">
-						<label for="password">E-mail</label>
+						<label for="email">E-mail</label>
 						<input type="email" name="email" id="email" placeholder="dark.pudding@example.com" required />
 					</div>
-                    <div class="form-control">
+                    <!-- <div class="form-control">
                         <label for="picture">Upload picture</label>
                         <div class="drag-area">
 							<img src="css/upload.png" class="upload-img" alt="Upload" />
@@ -43,10 +42,10 @@
                             <button>Browse files</button>
                             <input type="file" name="picture" id="picture" accept="image/png, image/jpeg" required hidden />
                         </div>
-                    </div>
+                    </div> -->
 					<div class="buttons">
 						<button type="button" class="btn cancel"><a href="index.html">Cancel</a></button>
-						<button type="submit" class="btn signIn">Sign in</button>
+						<button type="submit" class="btn signIn">Sign up</button>
 					</div>
 					
 				</form>
