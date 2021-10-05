@@ -3,8 +3,15 @@ const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
 const app = express();
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const { User } = require('./models/user');
 
 
+
+
+app.use(cors());
+app.use(cookieParser());
 
 /************************* FUNCTIONS APP.JS ************************************/
 
@@ -14,8 +21,8 @@ Joi.objectId = require('joi-objectid')(Joi);
 //here we require the 'userReg.js' file so we can use it more down
 const users = require('./routes/userReg');
 //here we require the 'userAuth.js' file so we can use it more down
-const auth = require('./routes/userAuth');
-const authorization = require('./middleware/auth');
+const authentication = require('./routes/userAuth');
+const {auth, checkUser, checkUser2} = require('./middleware/auth');
 
 //function to check if the config "PrivateKey" is defined
 if (!config.get('jwtPrivateKey')) {
@@ -23,24 +30,17 @@ if (!config.get('jwtPrivateKey')) {
     process.exit(1);
 }
 //if you have the error devine the key like this in the terminal:
-//in mac: ‘export chat_PrivateKey=mySecureKey’
-//in windows: ‘set chat_PrivateKey=mySecureKey’
+//in mac: ‘export chat_jwtPrivateKey=mySecureKey’
+//in windows: ‘set chat_jwtPrivateKey=mySecureKey’
 
 app.use(express.urlencoded({extended: true})); 
 app.use(express.json());
 
 //here we set up the route to the userReg.js and auth.js
 app.use('/api/users', users);
-app.use('/api/auth', auth);
+app.use('/api/auth', authentication);
 
-//route to a welcome message just to try. As it has the 'authorization' function there, only if we are logged in (give a valid token) it will work
-app.post("/welcome", authorization, (req, res) => {
-  res.status(200).send("Welcome 🙌 ");
-});
 
-app.get("/welcome", authorization, (req, res) => {
-    res.status(200).send("Welcome 🙌 ");
-});
 
 /**********************************************************************************/
 
@@ -69,8 +69,55 @@ const io = socketio(server);
 
 const botName = 'JALF Bot ';
 
-//set static folder
+
+/******************* PAGES ROUTINGS **************************/
+
+// //set static folder
+
+const router = express.Router();
+
+// const router = require("./routes/mainRouter")
+//route to a welcome message just to try. As it has the 'authorization' function there, only if we are logged in (give a valid token) it will work
+// app.get("/", (req, res) => {
+//     //handle root
+// })
+
+
+
+// app.get("*", checkUser);
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/index.html'));
+});
+
+app.get("/welcome", auth, (req, res) => {
+    res.status(200).send("Welcome 🙌 ");
+});
+
+app.get("/register", (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/register.html'));
+});
+
+app.get("/chat", auth, (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/chat.html'));
+});
+
+app.get("/profile", (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/edit.html'));
+});
+
+app.get('/me', async (req, res) => {
+    const user = checkUser2;
+    console.log(user.name);
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+/******************* ************** **************************/
+
+
 
 // Run when chat client connects
 io.on('connection', socket => {

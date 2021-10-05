@@ -8,9 +8,6 @@ const config = require('config');
 const jwt = require('jsonwebtoken');
 
 
-
-
-
 //Here we create the User Schema with the requirements for name, email and password
 const userSchema = new mongoose.Schema({
     name: {

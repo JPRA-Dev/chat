@@ -6,6 +6,10 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 
+var cookieParser = require('cookie-parser')
+ 
+var app = express()
+app.use(cookieParser())
 //we require 'bcrypt' to do the hashing of the password
 const bcrypt = require('bcrypt');
 
@@ -26,10 +30,10 @@ const bcrypt = require('bcrypt');
 
 //get the current user!
 //we use our middleware authorization function so the user has to be logged in to access it
-router.get('/me', authorization, async (req, res) => {
-    const user = await User.findById(req.user._id).select('-password -confirmPassword');     //in the 'select' we are saying to explude the property "password" and "confirmPassword", do the user can't see them
-    res.send(user);
-});
+// router.get('/me', authorization, async (req, res) => {
+//     const user = await User.findById(req.user._id).select('-password -confirmPassword');     //in the 'select' we are saying to explude the property "password" and "confirmPassword", do the user can't see them
+//     res.send(user);
+// });
 
 
 
@@ -77,9 +81,10 @@ router.post('/', async (req, res) => {
 
         const token = user.generateAuthToken();
         //res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']));
-        res.cookie('token', token, { secure: false, // set to true if your using https
+        //time of cookies last 2 hours
+        res.cookie('token', token, { maxAge: 7.2e+6, secure: false, // set to true if your using https
             httpOnly: true,
-        })
+        });
         res.end();
     }
 });
