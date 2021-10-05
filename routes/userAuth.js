@@ -32,7 +32,14 @@ router.post('/', async (req, res) => {
     //Now that we have the config files, instead of referencing the private key directly, we reference it using the config.get() function that is inside the user.generateAuthToken();
     const token = user.generateAuthToken();
 
-    res.send(token);
+    // res.header('x-auth-token', token);
+    // res.send(token);
+    res.cookie('token', token, { secure: false, // set to true if your using https
+        httpOnly: true,
+    })
+    res.redirect("/welcome");
+    res.end();
+    // res.redirect("/welcome");
 });
 
 function validate(req) {

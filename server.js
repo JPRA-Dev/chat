@@ -5,6 +5,7 @@ const socketio = require('socket.io');
 const app = express();
 
 
+
 /************************* FUNCTIONS APP.JS ************************************/
 
 const config = require('config');
@@ -17,7 +18,7 @@ const auth = require('./routes/userAuth');
 const authorization = require('./middleware/auth');
 
 //function to check if the config "PrivateKey" is defined
-if (!config.get('PrivateKey')) {
+if (!config.get('jwtPrivateKey')) {
     console.error('FATAL ERROR: PrivateKey is not defined.');
     process.exit(1);
 }
@@ -35,6 +36,10 @@ app.use('/api/auth', auth);
 //route to a welcome message just to try. As it has the 'authorization' function there, only if we are logged in (give a valid token) it will work
 app.post("/welcome", authorization, (req, res) => {
   res.status(200).send("Welcome 🙌 ");
+});
+
+app.get("/welcome", authorization, (req, res) => {
+    res.status(200).send("Welcome 🙌 ");
 });
 
 /**********************************************************************************/

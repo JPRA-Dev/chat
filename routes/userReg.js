@@ -1,4 +1,4 @@
-//Here we require our 'User and the Validade Schema' and express
+//Here we require our 'User', the Validade Schema' and express
 const authorization = require('../middleware/auth');
 const { User, validate} = require('../models/user');
 const _ = require('lodash');
@@ -68,15 +68,22 @@ router.post('/', async (req, res) => {
         // //we give the "user" object to the functions and we pass an array of the properties that we want to pick from it"
         // _.pick(user, ['name', 'email']);
 
+        //it will generate the token to the user 'x-auth-token'
+        //return res.redirect('/index.html');
+
+
         //we save the user
         await user.save();
-        
-        //it will generate the token to the user 'x-auth-token'
+
         const token = user.generateAuthToken();
-        res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']));
-        //return res.redirect('/index.html');
+        //res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']));
+        res.cookie('token', token, { secure: false, // set to true if your using https
+            httpOnly: true,
+        })
+        res.end();
     }
 });
+
 
 module.exports = router;
  
