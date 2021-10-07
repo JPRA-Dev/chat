@@ -1,9 +1,10 @@
 const users = [];
+const {checkUser} = require('../middleware/auth');
 
 //Join user to chat
 function userJoin(id, username, room) {
-    const user = { id, username, room };
-
+    const user = checkUser;
+    
     users.push(user);
 
     console.log(user);

@@ -2,8 +2,12 @@ const Joi = require('joi');
 const bcrypt = require('bcrypt');
 const { User } = require('../models/user');
 const express = require('express');
-const mongoose = require('mongoose');
 const router = express.Router();
+var cookieParser = require('cookie-parser')
+ 
+var app = express()
+app.use(cookieParser())
+
 
 router.post('/', async (req, res) => {
     // First Validate The HTTP Request
@@ -32,7 +36,19 @@ router.post('/', async (req, res) => {
     //Now that we have the config files, instead of referencing the private key directly, we reference it using the config.get() function that is inside the user.generateAuthToken();
     const token = user.generateAuthToken();
 
-    res.send(token);
+    // res.header('x-auth-token', token);
+    // res.send(token);
+    //time of cookies last 2 hours
+    res.cookie('token', token, { maxAge: 7.2e+6, secure: false, // set to true if your using https
+        httpOnly: true,
+    });
+    res.redirect("/chat")
+    res.end();
+});
+
+router.get('/me', async (req, res) => {
+    const user = await User.findById(req.user._id).select('-password -confirmPassword');     //in the 'select' we are saying to explude the property "password" and "confirmPassword", do the user can't see them
+    res.send(user);
 });
 
 function validate(req) {
@@ -41,7 +57,6 @@ function validate(req) {
         password: Joi.string().min(5).max(255).required(),
         room: Joi.string().min(3).max(50).required()
     });
-
     return schema.validate(req);
 }
 
