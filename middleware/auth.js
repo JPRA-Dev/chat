@@ -40,7 +40,7 @@ const checkUser = (req, res, next) => {
         console.log('Access denied. No token provided. Please login first');
         res.locals.user = null;
     } else {
-        jwt.verify(token, config.get('jwtPrivateKey'), async (err, decodedToken) => {
+        jwt.verify(token, ('jwtPrivateKey'), async (err, decodedToken) => {
             if (err) {
                 console.log('Invalid token.');
                 res.locals.user = null;
@@ -53,21 +53,24 @@ const checkUser = (req, res, next) => {
     return res.locals.user;
 }
 
-const checkUser2 = (req, res, next) => {
+const checkUser2 = async (req, res, next) => {
     const token = req.cookies.token || '';
     if (!token) return res.status(401).send('Access denied. No token provided. Please login first');
 
     try{
     //here we give the token and our privatekey to the verify function to be able to verify if it is valid.
     //
-        const decoded = jwt.verify(token, config.get('jwtPrivateKey'));
-        req.user = decoded;
+        const decoded = jwt.verify(token, config.get('jwtPrivateKey'));  
+        var userId = decoded.id;
+        let user = await User.findById(decoded.id);
+        res.locals.user = user;
+        console.log(decoded);
         next();         //the next one will be our route handler
     }
     catch (ex) {
         res.status(400).send('Invalid token.');
     }
-    return req.user;
+    return userId;
 }
 
 module.exports = { auth, checkUser, checkUser2};

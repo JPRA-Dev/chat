@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const { User } = require('./models/user');
 
 
-app.use(cors());
+// app.use(cors());
 app.use(cookieParser());
 
 /************************* FUNCTIONS APP.JS ************************************/
@@ -87,7 +87,7 @@ router.get('/register',function(req,res){
     res.sendFile(path.join(__dirname+'/public/register.html'));
 });
 
-router.get("/chat", auth, (req, res) => {
+router.get("/chat", (req, res) => {
     res.sendFile(path.join(__dirname+'/public/chat.html'));
 });
 
@@ -97,12 +97,13 @@ router.get("/profile", (req, res) => {
 
 router.get('/me', async (req, res) => {
     const user = checkUser2;
-    console.log(user.name);
+    console.log(user);
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', router);
+
 
 /******************* ************** **************************/
 
