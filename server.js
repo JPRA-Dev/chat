@@ -8,8 +8,6 @@ const cookieParser = require('cookie-parser');
 const { User } = require('./models/user');
 
 
-
-
 app.use(cors());
 app.use(cookieParser());
 
@@ -72,48 +70,39 @@ const botName = 'JALF Bot ';
 
 /******************* PAGES ROUTINGS **************************/
 
-// //set static folder
 
 const router = express.Router();
 
-// const router = require("./routes/mainRouter")
-//route to a welcome message just to try. As it has the 'authorization' function there, only if we are logged in (give a valid token) it will work
-// app.get("/", (req, res) => {
-//     //handle root
-// })
 
-
-
-// app.get("*", checkUser);
-
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/index.html'));
+router.get('/',function(req,res){
+    res.sendFile(path.join(__dirname+'/public/index.html'));
 });
 
-app.get("/welcome", auth, (req, res) => {
+router.get("/welcome", auth, (req, res) => {
     res.status(200).send("Welcome 🙌 ");
 });
 
-app.get("/register", (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/register.html'));
+
+router.get('/register',function(req,res){
+    res.sendFile(path.join(__dirname+'/public/register.html'));
 });
 
-app.get("/chat", auth, (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/chat.html'));
+router.get("/chat", auth, (req, res) => {
+    res.sendFile(path.join(__dirname+'/public/chat.html'));
 });
 
-app.get("/profile", (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/edit.html'));
+router.get("/profile", (req, res) => {
+    res.sendFile(path.join(__dirname+'/public/edit.html'));
 });
 
-app.get('/me', async (req, res) => {
+router.get('/me', async (req, res) => {
     const user = checkUser2;
     console.log(user.name);
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+app.use('/', router);
 
 /******************* ************** **************************/
 
